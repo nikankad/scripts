@@ -44,7 +44,7 @@ if x["cod"] != "404":
 
 
 if(current_temperature < 30):
-    current_temperature = "^["+str(current_temperature)+"°]"
+    current_temperature = "["+str(current_temperature)+"°]"
 else: 
     current_temperature = "["+str(current_temperature)+"°]"
 
