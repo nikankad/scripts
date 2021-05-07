@@ -15,7 +15,7 @@ PLAYER="spotify"
 # Format of the information displayed
 # Eg. {{ artist }} - {{ album }} - {{ title }}
 # See more attributes here: https://github.com/altdesktop/playerctl/#printing-properties-and-metadata
-FORMAT="[{{ title }} - {{ artist }}]"
+FORMAT="^c#bf3a5c^[{{ title }} - {{ artist }}]"
 
 # Sends $2 as message to all polybar PIDs that are part of $1
 update_hooks() {
@@ -53,7 +53,7 @@ fi
 
 case $BUTTON in
      1) qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next;;
-     2)qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause;;
+     2)qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause| notify-send -t 2000 "paused";;
      3) qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous;;
     
 esac

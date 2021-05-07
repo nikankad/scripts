@@ -11,4 +11,4 @@ fi
 
 
 
-echo "[$icon $vol%]"
+echo "$icon $vol"

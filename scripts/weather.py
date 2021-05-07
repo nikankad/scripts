@@ -4,16 +4,19 @@
 # using openweathermap api
   
 # import required modules
-import requests, json, time
+import requests, json, os
+#do pip install python-dotenv, or if you dont want to store your keys in a env file put them in the string
+from dotenv import load_dotenv
 
+load_dotenv()
 # Enter your API key here
-api_key = "API KEY"
+api_key = str(os.getenv('APIKEY'))
   
 # base_url variable to store url
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
   
 # Give city name
-city_name = "CITY"
+city_name = str(os.getenv('CITY'))
   
 # complete_url variable to store
 # complete url address
@@ -39,14 +42,15 @@ if x["cod"] != "404":
     y = x["main"]
   
     # store the value corresponding
-    # to the "temp" key of y
+    #changing the kalvin value to celcius
     current_temperature = int(round(y["temp"] - 273, 0))
 
 
 if(current_temperature < 30):
-    current_temperature = "["+str(current_temperature)+"°]"
+    current_temperature = str(current_temperature)
 else: 
-    current_temperature = "["+str(current_temperature)+"°]"
+    current_temperature = str(current_temperature)
 
 
 print(current_temperature)
+
